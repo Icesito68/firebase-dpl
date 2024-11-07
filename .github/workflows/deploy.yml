@@ -3,7 +3,7 @@ name: Deploy to Firebase Hosting
 on:
     push:
         branches:
-            - master  # Make sure this matches your branch name
+            - main  # Make sure this matches your branch name
 
 jobs:
     build:
@@ -29,3 +29,4 @@ jobs:
                 GOOGLE_APPLICATION_CREDENTIALS: "$HOME/service-account.json"
               run: |
                 firebase deploy --only hosting
+base deploy --only hosting
