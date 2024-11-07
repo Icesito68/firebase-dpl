@@ -1,0 +1,19 @@
+{
+  "name": "try",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Icesito68/firebase-dpl.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Icesito68/firebase-dpl/issues"
+  },
+  "homepage": "https://github.com/Icesito68/firebase-dpl#readme"
+}
