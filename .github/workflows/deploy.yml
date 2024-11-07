@@ -3,7 +3,7 @@ name: Deploy to Firebase Hosting
 on:
     push:
         branches:
-            - master
+            - master  # Make sure this matches your branch name
 
 jobs:
     build:
@@ -17,11 +17,15 @@ jobs:
               uses: actions/setup-node@v2
               with:
                 node-version: '18'
-                
+
             - name: Install Firebase CLI
               run: npm install -g firebase-tools
 
-            - name: Deploy to Fireabse Hosting
+            - name: Set up Firebase credentials
+              run: echo "${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}" > "$HOME/service-account.json"
+
+            - name: Deploy to Firebase Hosting
               env:
-                GOOGLE_APPLICATION_CREDENTIALS: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}
-              run: echo "${GOOGLE_APPLICATION_CREDENTIALS}" > "$HOME"/service-account.json export GOOGLE_APPLICATION_CREDENTIALS="$HOME/service-acccount.json" firebase deploy --only hosting
+                GOOGLE_APPLICATION_CREDENTIALS: "$HOME/service-account.json"
+              run: |
+                firebase deploy --only hosting
